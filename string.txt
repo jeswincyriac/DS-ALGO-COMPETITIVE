@@ -1,4 +1,0 @@
-//cstring for char arrays,to know size we can use strlen which uses linear time.Also while declaration we should know siz.
-//string library gives dynamic array.strlen is a variable and gives constant time.
-#include<iostream>
-#include<string>
