@@ -26,33 +26,25 @@ public:
         printf("\n");
     }
     }
-    void bfs(int s){
-        bool *visited = new bool [v];
-         for(int i=0;i<v;i++)
-         {
-             visited[i] = false;
-         }
-
-         list<int> queue;
-         visited[s] =true;
-         queue.push_back(s);
-         list<int>::iterator i;
-         while(!queue.empty())
-         {
-             s=queue.front();
-             queue.pop_front();
-             cout<<s<<endl;
-             for(i=adj[s].begin();i!=adj[s].end();i++)
-             {
-                 if(!visited[*i])
-                 {
-                     visited[*i]=true;
-                     queue.push_back(*i);
-
-
-                 }
-             }
+    void dfsu(int s,bool visited[])
+    {
+        visited[s] = true;
+        cout<<s<<" ";
+        list<int>::iterator i;
+        for(i= adj[s].begin();i!=adj[s].end();i++){
+            if(!visited[*i])
+            {
+                dfsu(*i,visited);
+            }
         }
+    }
+    void dfs(int s){
+        bool *visited = new bool[v];
+        for(int i=0;i<v;i++)
+        {
+            visited[i]=false;
+        }
+        dfsu(s,visited);
 
     }
 
@@ -69,6 +61,6 @@ g.addedge(2, 3);
 g.addedge(3, 3);
 //g.printGraph();
 
-g.bfs(2);
+g.dfs(2);
 return 0;
 }
