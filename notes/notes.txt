@@ -1,0 +1,5 @@
+g++
+in C++ class default member access is private, whereas for struct it is public.
+single or doubly linked list?
+IF U CANT get answer draw detailrd graphs
+#include<list> :-doubly linked linked_list
